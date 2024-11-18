@@ -125,4 +125,11 @@
     .pre-title {
         font-size: 0.7rem;
     }
+
+    .contact-item-icon {
+        min-width: 50px; /* Set a minimum width */
+        padding: 8px; /* Adjust padding if needed */
+        border-width: 2px; /* Maintain border width */
+    }
+
 };
