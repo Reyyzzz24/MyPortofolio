@@ -161,7 +161,7 @@ nav ul li a:hover {
 
 /* hero section */
 #hero {
-    height: 720px;
+    height: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
