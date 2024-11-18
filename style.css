@@ -317,6 +317,8 @@ nav ul li a:hover {
     display: flex;
     gap: 1rem;
     margin: 1rem 0;
+    flex-wrap: nowrap;
+    padding: 10px 0;
 }
 
 .portofolio-tags div {
@@ -324,6 +326,35 @@ nav ul li a:hover {
     border: 1px solid var(--borderColor);
     padding: .4rem 1rem;
     color: var(--secondaryTextColor);
+}
+
+.portofolio-tags-wrapper {
+    width: 100%; /* Menjamin container bisa menyesuaikan ukuran layar */
+    overflow-x: auto; /* Mengaktifkan scroll horizontal jika konten melebihi lebar */
+    margin-bottom: 1.5rem;
+}
+
+.tag-item {
+    background-color: var(--secondaryBackgroundColor);
+    border: var(--borderColor);
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* Scrollbar custom */
+.portofolio-tags-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.portofolio-tags-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.portofolio-tags-wrapper::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
 }
 
 /* Skills & Education */
@@ -485,3 +516,5 @@ footer {
     fill: #000;
     transform: scale(1.1); /* Membesarkan ikon sedikit saat hover */
 }
+
+
