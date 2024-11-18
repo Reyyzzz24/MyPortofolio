@@ -55,14 +55,16 @@ a {
 .btn {
     padding: 1rem 1.5rem;
     background: white;
-    border: 1.5px solid var(--borderColor); 
+    border: 1.5px solid var(--borderColor);
     cursor: pointer;
-    transition: .2s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Tambahkan transisi untuk transformasi */
 }
 
 .btn:hover {
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    transform: scale(1.05); /* Membesarkan tombol sedikit */
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px; /* Efek bayangan saat hover */
 }
+
 
 /* titles */
 
@@ -128,8 +130,16 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--primaryTextColor)
+    display: inline-block; /* Agar transformasi bisa diterapkan dengan baik */
+    padding: 0.5rem 1rem;
+    transition: transform 0.3s ease-in-out; /* Menambahkan transisi pada transformasi */
+    color: var(--primaryTextColor);
 }
+
+nav ul li a:hover {
+    transform: scale(1.1); /* Membesarkan elemen 10% saat di-hover */
+}
+
 
 /* burger */
 .burger div {
@@ -167,11 +177,41 @@ nav ul li a {
     color: var(--primaryIconColor);
 }
 
+.hero-left h3, .hero-left h1, .hero-left p {
+    opacity: 0;
+    transform: translateX(50px); /* Posisi awal di kanan */
+    animation: slideInLeft 0.6s forwards; /* Durasi animasi */
+}
+
+.hero-left h3 {
+    animation-delay: 0.2s; /* Animasi pertama dengan delay */
+}
+
+.hero-left h1 {
+    animation-delay: 0.4s; /* Animasi kedua dengan delay */
+}
+
+.hero-left p {
+    animation-delay: 0.6s; /* Animasi ketiga dengan delay */
+}
+
+/* Keyframes untuk animasi slide-in */
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Elemen bergerak ke posisi normal */
+    }
+}
+
 .hero-right img {
     width: 220px; /* Atur lebar gambar sesuai kebutuhan */
     height: 220px; /* Atur tinggi agar proporsi sesuai */
     border-radius: 80%; /* Membuat gambar berbentuk lingkaran */
     object-fit: cover; /* Memastikan gambar menutupi lingkaran tanpa distorsi */
+    opacity: 0;
+    transform: scale(0.5); /* Ukuran awal yang lebih kecil */
+    animation: popUp 0.8s forwards; /* Durasi animasi */
+    animation-delay: 0.8s; /* Delay agar muncul setelah elemen di kiri selesai */
 }
 
 
@@ -179,6 +219,13 @@ nav ul li a {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+}
+
+@keyframes popUp {
+    to {
+        opacity: 1;
+        transform: scale(1); /* Ukuran normal */
+    }
 }
 
 /* services section */
@@ -360,6 +407,7 @@ nav ul li a {
     border: 1px solid var(--borderColor);
     border-radius: 3px;
     resize: none;
+    display: inline-block;
 }
 
 .contact-form input::placeholder,
@@ -425,12 +473,15 @@ footer {
 
 .footer-icons a {
     margin: 0 .5rem;
+    display: inline-block; /* Membuat elemen menjadi inline-block untuk memungkinkan transformasi */
 }
 
 .footer-icons svg {
     fill: #3e3f40;
+    transition: transform 0.3s ease, fill 0.3s ease; /* Transisi halus untuk animasi */
 }
 
 .footer-icons a:hover svg {
     fill: #000;
+    transform: scale(1.1); /* Membesarkan ikon sedikit saat hover */
 }
