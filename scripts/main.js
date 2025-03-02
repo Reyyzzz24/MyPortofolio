@@ -18,55 +18,78 @@ window.onbeforeunload = () => {
     }
 };
 
-const initDragScroll = () => {
-    const slider = document.querySelector(".grid-3");
-    if (!slider) return;
+// Smooth Drag Scroll untuk Portfolio
+/* const initDragScroll = () => {
+    const container = document.querySelector(".grid-3");
+    if (!container) return; // Hindari error jika elemen tidak ditemukan
 
     let isDown = false;
-    let startX;
+    let startX, startY;
     let scrollLeft;
+    let isDragging = false;
+    let isHorizontalScroll = false;
 
-    slider.addEventListener("mousedown", (e) => {
+    container.addEventListener("mousedown", (e) => {
         isDown = true;
-        slider.classList.add("active");
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
+        startX = e.pageX;
+        startY = e.pageY;
+        scrollLeft = container.scrollLeft;
+        isDragging = false;
+        isHorizontalScroll = false;
+        container.style.cursor = "grabbing"; // Ubah cursor saat drag
     });
 
-    slider.addEventListener("mouseleave", () => {
+    container.addEventListener("mouseleave", () => {
         isDown = false;
-        slider.classList.remove("active");
+        container.style.cursor = "grab";
     });
 
-    slider.addEventListener("mouseup", () => {
+    container.addEventListener("mouseup", () => {
         isDown = false;
-        slider.classList.remove("active");
+        container.style.cursor = "grab";
     });
 
-    slider.addEventListener("mousemove", (e) => {
+    container.addEventListener("mousemove", (e) => {
         if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
+        const xDiff = e.pageX - startX;
+        const yDiff = e.pageY - startY;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            isDragging = true;
+            isHorizontalScroll = true;
+            container.scrollLeft = scrollLeft - xDiff * 2;
+            e.preventDefault(); // Cegah scroll vertikal saat geser horizontal
+        }
     });
 
-    // Support touch events for mobile
-    slider.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
+    // Handle touch event untuk mobile
+    container.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX;
+        startY = e.touches[0].pageY;
+        scrollLeft = container.scrollLeft;
+        isDragging = false;
+        isHorizontalScroll = false;
+    }, { passive: true });
 
-    slider.addEventListener("touchmove", (e) => {
-        e.preventDefault();
-        const x = e.touches[0].pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk;
+    container.addEventListener("touchmove", (e) => {
+        const xDiff = e.touches[0].pageX - startX;
+        const yDiff = e.touches[0].pageY - startY;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            isHorizontalScroll = true;
+            container.scrollLeft = scrollLeft - xDiff * 2;
+            e.preventDefault(); // Cegah scroll vertikal hanya saat geser horizontal
+        }
+    }, { passive: false });
+
+    container.addEventListener("touchend", () => {
+        isDragging = false;
+        isHorizontalScroll = false;
     });
 };
 
-// Panggil fungsi setelah DOM siap
+// Jalankan fungsi setelah DOM siap
 document.addEventListener("DOMContentLoaded", () => {
     navSlide();
     initDragScroll();
-});
+}); */
