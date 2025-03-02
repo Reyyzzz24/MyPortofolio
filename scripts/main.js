@@ -93,3 +93,66 @@ document.addEventListener("DOMContentLoaded", () => {
     navSlide();
     initDragScroll();
 }); */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const portfolioWrapper = document.querySelector(".grid-3"); // Wrapper yang bisa di-scroll
+    const portfolios = document.querySelectorAll(".portofolio");
+    const dotContainer = document.querySelector(".dot-navigation");
+
+    if (!portfolios.length || !dotContainer || !portfolioWrapper) return;
+
+    function updateDots() {
+        if (window.innerWidth <= 640) {
+            dotContainer.innerHTML = ""; // Bersihkan dot sebelumnya
+
+            // Buat dot sesuai jumlah portofolio
+            portfolios.forEach((_, index) => {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                dot.dataset.index = index;
+                dotContainer.appendChild(dot);
+            });
+
+            dotContainer.style.display = "flex"; // Tampilkan dot
+            addDotListeners();
+            activateDot(0); // Set dot pertama sebagai aktif
+        } else {
+            dotContainer.style.display = "none"; // Sembunyikan dot
+        }
+    }
+
+    function activateDot(index) {
+        const dots = document.querySelectorAll(".dot");
+        dots.forEach(dot => dot.classList.remove("active"));
+        if (dots[index]) {
+            dots[index].classList.add("active");
+        }
+    }
+
+    function addDotListeners() {
+        document.querySelectorAll(".dot").forEach(dot => {
+            dot.addEventListener("click", function () {
+                const index = parseInt(this.dataset.index);
+                const scrollPosition = portfolios[index].offsetLeft - portfolioWrapper.offsetLeft;
+                
+                portfolioWrapper.scrollTo({
+                    left: scrollPosition,
+                    behavior: "smooth"
+                });
+            });
+        });
+    }
+
+    function updateActiveDotOnScroll() {
+        const scrollLeft = portfolioWrapper.scrollLeft;
+        const itemWidth = portfolios[0].offsetWidth; // Lebar satu item grid
+        const activeIndex = Math.round(scrollLeft / itemWidth); // Hitung item yang sedang terlihat
+
+        activateDot(activeIndex); // Update dot aktif
+    }
+
+    portfolioWrapper.addEventListener("scroll", updateActiveDotOnScroll);
+    window.addEventListener("resize", updateDots);
+
+    updateDots();
+});
