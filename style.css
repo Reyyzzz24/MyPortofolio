@@ -30,7 +30,12 @@ h1,h2,h3,h4,h5,h6, strong {
 p {
     font-size: 1rem;
     line-height: 1.9rem;
+    white-space: normal;  /* Pastikan teks bisa wrap */
+    word-wrap: break-word; /* Pastikan kata panjang terpecah */
+    overflow-wrap: break-word;
+    max-width: 100%;  /* Hindari melampaui parent */
 }
+
 
 p, span, label, input, textarea, li {
     color: var(--secondaryTextColor)
@@ -290,7 +295,7 @@ nav ul li a:hover {
 .portofolio {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    width: 320px;
+    width: 350px;
 }
 .portofolio-cover {
     height: 250px;
@@ -685,4 +690,23 @@ footer {
     cursor: pointer;
 }
 
+.dot-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
+.dot {
+    width: 6px;
+    height: 6px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
