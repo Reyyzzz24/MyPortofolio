@@ -11,6 +11,10 @@
     .skills-right ul li {
         font-size: 0.9rem;
     }
+
+    .grid-5-photography {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk tablet */
+    }
 }
 
 @media screen and (max-width: 825px) {
@@ -130,6 +134,10 @@
         min-width: 50px; /* Set a minimum width */
         padding: 8px; /* Adjust padding if needed */
         border-width: 2px; /* Maintain border width */
+    }
+
+    .grid-5-photography {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk HP */
     }
 
 };
