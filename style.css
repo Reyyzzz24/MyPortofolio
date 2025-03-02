@@ -102,25 +102,23 @@ a {
 }
 .grid-3 {
     display: flex;
-    gap: 2rem; /* Jarak antar item lebih kecil agar rapi */
+    gap: 1.5rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     cursor: grab;
     user-select: none;
     scroll-behavior: smooth;
-
-    -webkit-overflow-scrolling: touch; /* Momentum scroll untuk iOS */
-    scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
 
 .grid-3::-webkit-scrollbar {
-    display: none; /* Sembunyikan scrollbar di Chrome/Safari */
+    display: none;
 }
 
 .grid-3:active {
     cursor: grabbing;
 }
-
 
 /* logo and navigation menu */
 .nav {
@@ -299,7 +297,7 @@ nav ul li a:hover {
     flex: 0 0 auto;
     scroll-snap-align: start;
     width: 320px;
-    pointer-events: none; /* Mencegah masalah saat scroll vertikal */
+    pointer-events: none;
 }
 .portofolio-cover {
     height: 250px;
