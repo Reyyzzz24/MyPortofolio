@@ -109,7 +109,7 @@ a {
     user-select: none;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    scrollbar-width: auto;
 }
 
 .grid-3::-webkit-scrollbar {
@@ -297,7 +297,6 @@ nav ul li a:hover {
     flex: 0 0 auto;
     scroll-snap-align: start;
     width: 320px;
-    pointer-events: none;
 }
 .portofolio-cover {
     height: 250px;
