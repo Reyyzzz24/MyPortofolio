@@ -95,11 +95,24 @@ a {
 }
 
 /* layout */
-.grid-3 {
+.grid-3-services {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Menyesuaikan kolom */
     gap: 5rem;
 }
+.grid-3 {
+    display: flex;
+   /*  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */ /* Menyesuaikan kolom */
+    gap: 5rem;
+    overflow-x: auto; /* Sembunyikan scrollbar */
+    scroll-snap-type: x mandatory;
+    cursor: grab; /* Menunjukkan bisa di-drag */
+    user-select: none; /* Mencegah teks terpilih saat drag */
+}
+.grid-3:active {
+    cursor: grabbing; /* Efek saat di-drag */
+}
+
 /* logo and navigation menu */
 .nav {
     display: flex;
@@ -274,11 +287,10 @@ nav ul li a:hover {
 }
 
 .portofolio {
-    border-radius: var(--itemBorderRadius);
-    overflow: hidden;
-    border: 1px solid var(--borderColor);
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 350px; /* Sesuaikan lebar portofolio */
 }
-
 .portofolio-cover {
     height: 250px;
 }
@@ -515,6 +527,161 @@ footer {
 .footer-icons a:hover svg {
     fill: #000;
     transform: scale(1.1); /* Membesarkan ikon sedikit saat hover */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+ */
+/* Video Container */
+
+ .video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Sesuaikan dengan rasio video */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar terisi tanpa distorsi */
+    display: block;
+    border-radius: 10px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    border-radius: 10px;
+}
+
+/* Design Container */
+
+.design-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1080 / 1550; /* Sesuai dengan rasio gambar */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.design-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Agar gambar pas dengan layout tanpa terdistorsi */
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Photography */
+
+#photography {
+    margin-bottom: 50px; /* Memberikan jarak antara layout dan footer */
+}
+
+.grid-5-photography {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.photo-item {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.photo-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.design-thumbnail:hover, .photo-thumbnail:hover {
+    transform: scale(1.05);
+}
+/* Styling untuk lightbox (popup zoom-in) */
+.lightbox {
+    display: none; /* Sembunyikan awalnya */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Latar belakang gelap transparan */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
+
+.lightbox:target {
+    display: flex; /* Tampilkan saat aktif */
+}
+
+/* Tombol close */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
