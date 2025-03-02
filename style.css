@@ -107,15 +107,19 @@ a {
 }
 .grid-3 {
     display: flex;
-    gap: 2rem; /* Jarak antar item lebih kecil agar rapi */
     overflow-x: auto;
+    gap: 20px;
     scroll-snap-type: x mandatory;
-    cursor: grab;
-    user-select: none;
+    scrollbar-width: none; /* Hilangkan scrollbar di Firefox */
+    -ms-overflow-style: none; /* Hilangkan scrollbar di IE dan Edge */
     scroll-behavior: smooth;
+    white-space: nowrap;
+    padding-bottom: 10px;
+}
 
-    -webkit-overflow-scrolling: touch; /* Momentum scroll untuk iOS */
-    scrollbar-width: auto; /* Sembunyikan scrollbar di Firefox */
+/* Hilangkan scrollbar di WebKit (Chrome, Safari, Instagram WebView) */
+.grid-3::-webkit-scrollbar {
+    display: none;
 }
 
 
