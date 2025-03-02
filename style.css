@@ -289,7 +289,7 @@ nav ul li a:hover {
 .portofolio {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    width: 350px; /* Sesuaikan lebar portofolio */
+    width: 320px; /* Sesuaikan lebar portofolio */
 }
 .portofolio-cover {
     height: 250px;
