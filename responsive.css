@@ -139,5 +139,63 @@
     .grid-5-photography {
         grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk HP */
     }
+    .grid-3 {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+        padding-bottom: 10px;
+    }
 
+    .grid-3::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .grid-3::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .grid-3::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+}
+
+/* Dot navigation hanya muncul di layar kecil */
+@media (max-width: 639px) {
+    .grid-3 {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+        padding-bottom: 10px;
+    }
+
+    .portofolio {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+    }
+
+    .dot-navigation {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .dot {
+        width: 7px;
+        height: 7px;
+        background-color: gray;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    
+    .dot.active {
+        background-color: black;
+    }
 };
