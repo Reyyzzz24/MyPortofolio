@@ -480,14 +480,20 @@ nav ul li a:hover {
 }
 
 .skills-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    gap: 2rem; /* Atur jarak antar kolom */
     margin-top: 1.5rem;
+    justify-content: center;
 }
 
 .skills-right ul {
-    line-height: 2rem;
-    padding: 0 1rem;
+    flex: 1; /* Setiap kolom mengambil ruang yang sama */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+.skills-list li {
+    margin-bottom: 0.5rem;
 }
 
 #contact {
