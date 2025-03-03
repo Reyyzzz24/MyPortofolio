@@ -210,7 +210,8 @@ nav ul li a:hover {
 .burger {
     display: none;
     z-index: 99;
-    position: fixed;
+   /*  position: fixed; */
+    position: absolute;
     top: 30px;
     right: 15px;
 }
@@ -481,17 +482,18 @@ nav ul li a:hover {
 
 .skills-list {
     display: flex;
-    gap: 2rem; /* Atur jarak antar kolom */
-    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     margin-top: 1.5rem;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .skills-list ul {
     flex: 1; /* Setiap kolom mengambil ruang yang sama */
-    line-height: 2rem;
-    padding: 0 1rem;
-    margin: 0;
+    padding: 0;
+    margin: 1rem;
 }
 
 .skills-list li {
