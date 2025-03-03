@@ -470,6 +470,13 @@ nav ul li a:hover {
     left: -6px;
 }
 
+.education-right p {
+    padding: 0 1rem;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
 .skills-right p {
     padding: 0 1rem;
     margin: 0 auto;
