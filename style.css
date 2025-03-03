@@ -222,8 +222,8 @@ nav ul li a:hover {
     display: none;
     z-index: 99;
     position: fixed;
-    top: 30px;
-    right: 15px;
+    top: 33px;
+    right: 35px;
 }
 
 /* hero section */
