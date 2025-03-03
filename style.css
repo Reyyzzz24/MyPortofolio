@@ -425,6 +425,7 @@ nav ul li a:hover {
 }
 
 /* Skills & Education */
+/* Skills & Education */
 #skills {
     padding: var(--sectionPadding);
     background: var(--secondaryBackgroundColor);
@@ -471,6 +472,12 @@ nav ul li a:hover {
     position: absolute;
     left: -6px;
 }
+
+.skills-right {
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
 
 .skills-right p {
     padding: 0 1rem;
