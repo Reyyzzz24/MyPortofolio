@@ -111,7 +111,8 @@
 
     /* Skill Section */
     .skills-grid {
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     /* Footer Section */
