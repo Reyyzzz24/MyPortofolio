@@ -493,7 +493,7 @@ nav ul li a:hover {
 .skills-list ul {
     flex: 1; /* Setiap kolom mengambil ruang yang sama */
     padding: 0;
-    margin: 1rem;
+    margin: 15px;
 }
 
 .skills-list li {
