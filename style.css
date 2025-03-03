@@ -438,7 +438,6 @@ nav ul li a:hover {
 .education {
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
 }
 
 .education .line {
