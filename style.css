@@ -7,12 +7,35 @@
     --lineColor: #d9d9d9;
     --primaryBackgroundColor: #fff;
     --secondaryBackgroundColor: #fbfbfb;
-    --thirdBackgrounfColor: #f5f3fe;
+    --thirdBackgroundColor: #f5f3fe;
     --primaryIconColor: #7e74f1;
     --primaryIconColorHover: #5d51e8;
     --sectionPadding: 6rem 0;
     --itemBorderRadius: 0.7rem;
+    --burger-color: #000; /* Warna default (tema terang) */
+    --footerIconColor: #3e3f40;  /* Warna default ikon */
+    --footerIconHoverColor: #000; /* Warna hover default */
+    --iconColor: #000000; /* Warna ikon default */
+}  
+
+/* Dark Mode */
+.dark-theme {
+    --primaryTextColor: #e0e0e0;
+    --secondaryTextColor: #b0b0b0;
+    --borderColor: #333;
+    --lineColor: #555;
+    --primaryBackgroundColor: #121212;
+    --secondaryBackgroundColor: #1e1e1e;
+    --thirdBackgroundColor: #252525;
+    --primaryIconColor: #7e74f1;
+    --primaryIconColorHover: #5d51e8;
+    --burger-color: #e0e0e0; /* Warna burger di dark mode */
+    --footerIconColor: #c2c2c2; /* Warna ikon saat dark mode */
+    --footerIconHoverColor: #ffffff; /* Warna hover saat dark mode */
+    --iconColor: #ffffff; /* Warna ikon saat dark mode */
 }
+
+
 * {
     margin: 0;
     padding: 0;
@@ -21,6 +44,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    background-color: var(--primaryBackgroundColor);
 }
 
 h1,h2,h3,h4,h5,h6, strong {
@@ -59,7 +83,8 @@ a {
 /* Button */
 .btn {
     padding: 1rem 1.5rem;
-    background: white;
+    background: var(--primaryBackgroundColor);
+    color: var(--primaryTextColor);
     border: 1.5px solid var(--borderColor);
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Tambahkan transisi untuk transformasi */
@@ -68,6 +93,13 @@ a {
 .btn:hover {
     transform: scale(1.05); /* Membesarkan tombol sedikit */
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px; /* Efek bayangan saat hover */
+}
+
+.btn img {
+    width: 20px; /* Sesuaikan ukuran ikon */
+    height: 20px;
+    fill: var(--iconColor); /* Warna ikon berubah sesuai tema */
+    transition: fill 0.3s ease-in-out;
 }
 
 
@@ -168,7 +200,7 @@ nav ul li a:hover {
 .burger div {
     width: 25px;
     height: 2px;
-    background-color: #000;
+    background-color: var(--burger-color);
     margin: 7px;
     transition: all 0.3s;
     z-index: 99;
@@ -178,8 +210,8 @@ nav ul li a:hover {
     display: none;
     z-index: 99;
     position: fixed;
-    top: 33px;
-    right: 35px;
+    top: 30px;
+    right: 15px;
 }
 
 /* hero section */
@@ -280,7 +312,7 @@ nav ul li a:hover {
 }
 
 .service-icon {
-    background: var(--thirdBackgrounfColor);
+    background: var(--thirdBackgroundColor);
     width: fit-content;
     margin: 0 auto;
     padding: 1rem 1.3rem;
@@ -297,10 +329,14 @@ nav ul li a:hover {
 }
 
 .portofolio {
+    border-radius: var(--itemBorderRadius);
+    overflow: hidden;
+    border: 1px solid var(--borderColor);
     flex: 0 0 auto;
     scroll-snap-align: start;
     width: 350px;
 }
+
 .portofolio-cover {
     height: 250px;
 }
@@ -335,12 +371,19 @@ nav ul li a:hover {
     transition: .2s ease-in-out;
 }
 
+.dark-theme .portofolio-title a svg{
+    filter: invert(1); /* Mengubah warna ikon menjadi putih */
+}
+
+.dark-theme .portofolio-title a svg:hover {
+    filter: none; /* Menghilangkan efek invert saat hover */
+    fill: var(--primaryIconColor); /* Pastikan warna sesuai tema */
+}
+
 .portofolio-tags {
     display: flex;
     gap: 1rem;
     margin: 1rem 0;
-    flex-wrap: nowrap;
-    padding: 10px 0;
 }
 
 .portofolio-tags div {
@@ -530,12 +573,12 @@ footer {
 }
 
 .footer-icons svg {
-    fill: #3e3f40;
+    fill: var(--footerIconColor); 
     transition: transform 0.3s ease, fill 0.3s ease; /* Transisi halus untuk animasi */
 }
 
 .footer-icons a:hover svg {
-    fill: #000;
+    fill: var(--footerIconHoverColor);
     transform: scale(1.1); /* Membesarkan ikon sedikit saat hover */
 }
 
@@ -694,23 +737,29 @@ footer {
     cursor: pointer;
 }
 
-.dot-navigation {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.dot {
-    width: 6px;
-    height: 6px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.3s;
+/* Tombol Toggle */
+#theme-toggle {
+    background: var(--thirdBackgroundColor);
+    border: 1.5px solid var(--borderColor);
     cursor: pointer;
+    color: var(--primaryTextColor);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
 }
 
-.dot.active {
-    background-color: #333;
+#theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 3px 5px;
+}
+
+#themeIcon {
+    /* width: 14px;
+    height: 14px; */
+    transition: transform 0.3s;
+}
+
+.dark-theme #themeIcon {
+    transform: rotate(180deg); /* Animasi saat ganti mode */
+    filter: invert(1); /* Mengubah warna ikon menjadi putih */
 }
