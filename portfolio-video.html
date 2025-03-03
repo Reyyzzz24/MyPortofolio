@@ -1,15 +1,62 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Video Editing</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link ke file CSS -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
 </head>
-
 <body>
+    <header>
+        <div class="main-container">
+            <div class="nav">
+                <div class="logo">
+                    <a href="/">RY</a>
+                </div>
+
+                <nav>
+                    <ul>                        
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#portofolios">Portofolio</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li>
+                            <button id="themeToggle" class="btn">
+                                <img id="themeIcon" src="images/icons/dark.svg" alt="Theme Icon" width="24">
+                            </button>
+                        </li>                        
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn">Resume</button>
+                                <div class="dropdown-content">
+                                    <a href="resume-id.pdf" target="_blank">Resume Indonesia</a>
+                                    <a href="resume-en.pdf" target="_blank">Resume English</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+
+                <div class="burger">
+                    <div class="line-1"></div>
+                    <div class="line-2"></div>
+                    <div class="line-3"></div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="burger">
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+    </div>
     <!-- <div class="services main-container" style="padding-top: 20px;">
         <h3 class="pre-title">MY</h3>
         <h1 class="section-title services-title">Video Editing</h1>
@@ -70,8 +117,8 @@
         </div>
     </section>
     
-    <section id="services">
-        <div class="services main-container" style="padding-top: 20px;">
+    <section>
+        <div class="services main-container" style="padding-top: 50px;">
             <h3 class="pre-title">AND</h3>
             <h1 class="section-title services-title">More AMVs</h1>
             <div class="grid-3-services">
@@ -172,6 +219,7 @@
             }
         }
     </script>
+
     <script src="scripts/main.js"></script>
 
 </body>
