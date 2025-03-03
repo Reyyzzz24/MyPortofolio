@@ -198,4 +198,8 @@
     .dot.active {
         background-color: black;
     }
+    .dark-theme .dot.active {
+        filter: invert(1); /* Mengubah warna ikon menjadi putih */
+    }
+    
 };
