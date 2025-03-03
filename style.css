@@ -210,8 +210,7 @@ nav ul li a:hover {
 .burger {
     display: none;
     z-index: 99;
-   /*  position: fixed; */
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 15px;
 }
@@ -425,7 +424,6 @@ nav ul li a:hover {
 }
 
 /* Skills & Education */
-/* Skills & Education */
 #skills {
     padding: var(--sectionPadding);
     background: var(--secondaryBackgroundColor);
@@ -454,8 +452,7 @@ nav ul li a:hover {
 }
 
 .education-info p {
-    margin: 0.6rem 0 1.4rem;
-    text-align: left;
+    margin: .6rem 0 1.4rem;
 }
 
 .education-years {
@@ -473,38 +470,15 @@ nav ul li a:hover {
     left: -6px;
 }
 
-.skills-right {
-    padding: 0 1rem;
-    box-sizing: border-box;
-}
-
-
-.skills-right p {
-    padding: 0 1rem;
-    margin: 0 auto;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
 .skills-list {
-    display: flex;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 1.5rem;
-    justify-content: flex-start;
-    width: 100%;
+}
+
+.skills-right ul {
+    line-height: 2rem;
     padding: 0 1rem;
-    box-sizing: border-box;
-}
-
-.skills-list ul {
-    flex: 1; /* Setiap kolom mengambil ruang yang sama */
-    padding: 0;
-    margin: 15px;
-}
-
-.skills-list li {
-    margin-bottom: 0.5rem;
 }
 
 #contact {
@@ -530,7 +504,6 @@ nav ul li a:hover {
     border: 1px solid var(--borderColor);
     border-radius: 3px;
     resize: none;
-    display: inline-block;
 }
 
 .contact-form input::placeholder,
