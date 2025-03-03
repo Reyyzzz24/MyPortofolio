@@ -45,6 +45,8 @@
 body {
     font-family: "Roboto", sans-serif;
     background-color: var(--primaryBackgroundColor);
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 h1,h2,h3,h4,h5,h6, strong {
@@ -161,6 +163,15 @@ a {
     display: flex;
     justify-content: space-between;
     padding: 2rem 0;
+}
+
+.navbar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.navbar-toggler {
+  margin-left: auto; /* Pastikan menu tetap di sebelah kanan */
 }
 
 .nav ul {
