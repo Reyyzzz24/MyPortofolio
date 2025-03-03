@@ -438,10 +438,11 @@ nav ul li a:hover {
 .education {
     display: flex;
     gap: 2rem;
+    align-items: flex-start;
 }
 
 .education .line {
-    padding: 0 0.7rem
+    padding: 0 0.7rem;
 }
 
 .education .line div {
@@ -452,7 +453,8 @@ nav ul li a:hover {
 }
 
 .education-info p {
-    margin: .6rem 0 1.4rem;
+    margin: 0.6rem 0 1.4rem;
+    text-align: left;
 }
 
 .education-years {
@@ -469,13 +471,6 @@ nav ul li a:hover {
     position: absolute;
     left: -6px;
 }
-
-.education-right p {
-    padding: 0 1rem;
-    margin: 0 auto;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
 
 .skills-right p {
     padding: 0 1rem;
