@@ -94,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initDragScroll();
 }); */
 
+/* Dot Section */
+
 document.addEventListener("DOMContentLoaded", function () {
     const portfolioWrapper = document.querySelector(".grid-3"); // Wrapper yang bisa di-scroll
     const portfolios = document.querySelectorAll(".portofolio");
@@ -156,3 +158,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateDots();
 });
+
+/* Dark theme/Light theme section */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const THEME_KEY = "theme";
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const body = document.body;
+
+    // Cek preferensi tema sebelumnya
+    if (localStorage.getItem(THEME_KEY) === "dark") {
+        body.classList.add("dark-theme");
+        if (themeIcon) themeIcon.src = "images/icons/light.svg"; // Ganti ikon jadi matahari
+    }
+
+    themeToggle.addEventListener("click", function () {
+        body.classList.toggle("dark-theme");
+
+        // Simpan preferensi pengguna & ubah ikon
+        if (body.classList.contains("dark-theme")) {
+            localStorage.setItem(THEME_KEY, "dark");
+            if (themeIcon) themeIcon.src = "images/icons/light.svg"; // Matahari untuk mode terang
+        } else {
+            localStorage.setItem(THEME_KEY, "light");
+            if (themeIcon) themeIcon.src = "images/icons/dark.svg"; // Bulan untuk mode gelap
+        }
+    });
+    if (document.body.classList.contains("dark-theme")) {
+        document.documentElement.style.setProperty("--background-color", "#121212");
+    } else {
+        document.documentElement.style.setProperty("--background-color", "#ffffff");
+    }
+});
+
