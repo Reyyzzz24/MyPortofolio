@@ -22,8 +22,8 @@
     .burger {
         display: block;
         cursor: pointer;
-        top: 15px;
-        right: 10px;
+        top: 30px;
+        right: 15px;
     }
 
     .toggle-burger .line-1 {
