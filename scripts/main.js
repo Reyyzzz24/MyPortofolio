@@ -192,3 +192,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+/* dark theme */
+const themeToggle = document.getElementById("theme-toggle"); // Tombol tema
+const body = document.body;
+
+// Cek apakah ada tema yang tersimpan di Local Storage
+if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-theme");
+}
+
+// Fungsi untuk toggle tema dengan efek animasi smooth
+themeToggle.addEventListener("click", () => {
+    body.classList.add("theme-transition");
+    
+    setTimeout(() => {
+        body.classList.toggle("dark-theme");
+
+        // Simpan status tema ke Local Storage
+        if (body.classList.contains("dark-theme")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+
+        body.classList.remove("theme-transition");
+    }, 10); // Delay sangat kecil untuk memastikan perubahan tidak instan
+
+    /* transisi */
+
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-theme");
+    }
+    
+    // Event listener untuk toggle mode
+    toggleTheme.addEventListener("click", () => {
+        body.classList.toggle("dark-theme");
+    
+        // Simpan preferensi pengguna di localStorage
+        if (body.classList.contains("dark-theme")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+    });
+    
+});
+
+
