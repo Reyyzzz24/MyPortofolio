@@ -10,30 +10,29 @@
     --thirdBackgroundColor: #f5f3fe;
     --primaryIconColor: #7e74f1;
     --primaryIconColorHover: #5d51e8;
-    --burger-color: #000;
-    --footerIconColor: #3e3f40;
-    --footerIconHoverColor: #000;
-    --iconColor: #000000;
+    --sectionPadding: 6rem 0;
+    --itemBorderRadius: 0.7rem;
+    --burger-color: #000; /* Warna default (tema terang) */
+    --footerIconColor: #3e3f40;  /* Warna default ikon */
+    --footerIconHoverColor: #000; /* Warna hover default */
+    --iconColor: #000000; /* Warna ikon default */
 }
 
-/* Terapkan transisi ke semua elemen yang menggunakan warna */
-body, 
-button, 
-input, 
-textarea, 
-a, 
-h1, h2, h3, h4, h5, h6, 
-p, 
-div, 
-span {
-    transition: 
-        background-color 0.4s ease-in-out, 
-        color 0.4s ease-in-out, 
-        border-color 0.4s ease-in-out, 
-        box-shadow 0.4s ease-in-out;
+body {
+    transition: background-color 0.5s ease-in-out, 
+                color 0.5s ease-in-out, 
+                border-color 0.5s ease-in-out;
 }
 
-/* Dark Theme */
+/* Tambahkan transisi pada semua elemen yang menggunakan variabel warna */
+* {
+    transition: background-color 0.5s ease-in-out, 
+                color 0.5s ease-in-out, 
+                border-color 0.5s ease-in-out;
+}
+
+
+/* Dark Mode */
 .dark-theme {
     --primaryTextColor: #e0e0e0;
     --secondaryTextColor: #b0b0b0;
@@ -44,11 +43,12 @@ span {
     --thirdBackgroundColor: #252525;
     --primaryIconColor: #7e74f1;
     --primaryIconColorHover: #5d51e8;
-    --burger-color: #e0e0e0;
-    --footerIconColor: #c2c2c2;
-    --footerIconHoverColor: #ffffff;
-    --iconColor: #ffffff;
+    --burger-color: #e0e0e0; /* Warna burger di dark mode */
+    --footerIconColor: #c2c2c2; /* Warna ikon saat dark mode */
+    --footerIconHoverColor: #ffffff; /* Warna hover saat dark mode */
+    --iconColor: #ffffff; /* Warna ikon saat dark mode */
 }
+
 
 * {
     margin: 0;
@@ -88,8 +88,9 @@ a {
 }
 
 .main-container {
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
-    max-width: 1200px
 }
 
 @media screen and (max-width: 1200px) {
